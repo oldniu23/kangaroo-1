@@ -1,5 +1,9 @@
 <template>
-  <div>statistics.vue</div>
+  <div>
+    statistics.vue
+    <hr />
+    <Nav />
+  </div>
 </template>
 
 <script lang="ts">
@@ -8,5 +12,5 @@ import Vue from "vue";
 export default Vue.extend({});
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 </style>
