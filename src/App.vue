@@ -3,8 +3,14 @@
     <router-view />
   </div>
 </template>
-
 <style lang="scss">
+// app的css不要使用scope  scope作用是只让代码在本文件内起作用
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
