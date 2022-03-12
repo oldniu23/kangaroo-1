@@ -12,5 +12,7 @@ body {
   color: #333; //#333是接近黑色 比较柔和的
   line-height: 1.5;
   font-family: $font-hei;
+  //默认设置16px
+  font-size: 16px;
 }
 </style>
