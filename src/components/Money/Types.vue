@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Component from "vue-class-component";
+import { Component, Watch, Prop } from "vue-property-decorator";
 
 @Component
 export default class Types extends Vue {
@@ -19,6 +19,10 @@ export default class Types extends Vue {
       throw new Error("未知类型");
     }
     this.type = type;
+  }
+  @Watch("type")
+  onValueChanged(value: string) {
+    this.$emit("update:value", value);
   }
 }
 </script>
