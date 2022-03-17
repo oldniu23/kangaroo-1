@@ -4,8 +4,8 @@ import Home from "../views/Home.vue";
 import Money from "@/views/Money.vue";
 import Labels from "@/views/Labels.vue";
 import Statistics from "@/views/Statistics.vue";
-import NotFound from '@/views/NotFound.vue'
-
+import NotFound from "@/views/NotFound.vue";
+import EditLabel from "@/views/EditLabel.vue";
 
 Vue.use(VueRouter);
 
@@ -24,13 +24,18 @@ const routes: Array<RouteConfig> = [
     component: Labels,
   },
   {
+    path: "/labels/edit",
+    component: EditLabel,
+  },
+  {
     path: "/statistics",
     component: Statistics,
   },
-  {  //页面匹配顺序由上到下 上边的不存在则会匹配 *（所有）
-    path:'*',
-    component:NotFound,
-  }
+  {
+    //页面匹配顺序由上到下 上边的不存在则会匹配 *（所有）
+    path: "*",
+    component: NotFound,
+  },
 ];
 
 const router = new VueRouter({
