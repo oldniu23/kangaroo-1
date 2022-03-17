@@ -14,5 +14,6 @@ body {
   font-family: $font-hei;
   //默认设置16px
   font-size: 16px;
+  background: #f5f5f5;
 }
 </style>
