@@ -3,7 +3,11 @@
     {{ recordList }}
     <NumberPad @update:value="onUpdateAmount" @submit="saveRecord" />
     <Types @update:value="onUpdateType" />
-    <Notes @update:value="onUpdateNotes" />
+    <Notes
+      file-name="备注"
+      placeholder="请在这里输入备注"
+      @update:value="onUpdateNotes"
+    />
     <Tags :data-source.sync="tags" @update:value="onUpdateTags" />
   </Layout>
 </template>
