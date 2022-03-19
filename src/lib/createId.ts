@@ -1,4 +1,4 @@
-//获取id   从loclaStorage里获取当前最大id  或者id 为 0   然后转成数字
+//获取id   从localStorage里获取当前最大id  或者id 为 0   然后转成数字
 let id: number = parseInt(window.localStorage.getItem("_idMax") || "0") || 0;
 
 function createId() {
