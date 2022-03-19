@@ -1,9 +1,11 @@
+import clone from "@/lib/clone";
 const localStorageKeyName = "recordList";
 const recordListModel = {
   data: [] as RecordItem[],
-  //克隆的时候可以是一个也可以是数组 也就是可以传一项也可以传数组
-  clone(data: RecordItem[] | RecordItem) {
-    return JSON.parse(JSON.stringify(data));
+  create(record: RecordItem) {
+    const record2: RecordItem = clone(record);
+    record2.createdAt = new Date();
+    this.data.push(record2);
   },
   fetch() {
     this.data = JSON.parse(
