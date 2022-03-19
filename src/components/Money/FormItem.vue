@@ -2,7 +2,12 @@
   <div>
     <label class="formItem">
       <span class="name">{{ fileName }}</span>
-      <input type="text" v-model="value" :placeholder="placeholder" />
+      <input
+        type="text"
+        :value="value"
+        @input="onValueChanged($event.target.value)"
+        :placeholder="placeholder"
+      />
     </label>
   </div>
 </template>
@@ -13,7 +18,8 @@ import { Component, Watch, Prop } from "vue-property-decorator";
 
 @Component
 export default class FormItem extends Vue {
-  value = "";
+  //value默认是空字符串
+  @Prop({ default: "" }) readonly value!: string;
 
   //fileName必填
   @Prop({ required: true }) fileName!: string;

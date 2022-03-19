@@ -6,7 +6,11 @@
       <span class="rightIcon"></span>
     </div>
     <div class="form-wrapper">
-      <FormItem fileName="标签名" placeholder="请输入标签名" />
+      <FormItem
+        :value="tag.name"
+        fileName="标签名"
+        placeholder="请输入标签名"
+      />
     </div>
     <div class="button-wrapper">
       <Button>删除标签</Button>
@@ -25,6 +29,8 @@ import Button from "@/components/Button.vue";
 
 @Component({ components: { Layout, Icon, FormItem, Button } })
 export default class EditLabel extends Vue {
+  tag?: { id: string; name: string } = undefined;
+
   created() {
     const id = this.$route.params.id;
     tagListModel.fetch();
@@ -32,7 +38,7 @@ export default class EditLabel extends Vue {
     //filter返回的是数组
     const tag = tags.filter((t) => t.id === id)[0];
     if (tag) {
-      console.log(tag);
+      this.tag = tag;
     } else {
       //标签不存在就重定向到404页面
       this.$router.replace("/404");
