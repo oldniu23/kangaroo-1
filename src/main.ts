@@ -5,11 +5,17 @@ import router from "./router";
 import store from "./store";
 import Nav from "@/components/Nav.vue";
 import tagListModel from "./models/tagListModel";
+import recordListModel from "./models/recordListModel";
 
 Vue.config.productionTip = false;
 
 Vue.component("Nav", Nav);
 
+//record store
+window.recordList = recordListModel.fetch();
+window.createRecord = (record: RecordItem) => recordListModel.create(record);
+
+//tag store
 window.tagList = tagListModel.fetch();
 window.findTag = (id: string) => {
   return window.tagList.filter((t) => t.id === id)[0];
