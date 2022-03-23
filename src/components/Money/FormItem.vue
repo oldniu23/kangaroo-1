@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 通用组件 备注和编辑标签用到的 通过money组件传值 -->
     <label class="formItem">
       <span class="name">{{ fileName }}</span>
       <input
@@ -14,7 +15,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { Component, Watch, Prop } from "vue-property-decorator";
+import { Component, Prop } from "vue-property-decorator";
 
 @Component
 export default class FormItem extends Vue {

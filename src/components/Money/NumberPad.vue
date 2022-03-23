@@ -60,6 +60,7 @@ export default class NumberPad extends Vue {
     this.output = "0";
   }
   ok() {
+    //点ok触发Money组件中两个事件 一个更新output 一个提交 output
     this.$emit("update:value", this.output);
     this.$emit("submit", this.output);
     this.output = "0";
