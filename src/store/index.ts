@@ -1,5 +1,6 @@
 import clone from "@/lib/clone";
 import createId from "@/lib/createId";
+import router from "@/router";
 import Vue from "vue";
 import Vuex from "vuex";
 
@@ -24,6 +25,43 @@ const store = new Vuex.Store({
     setCurrentTag(state, id: string) {
       const tag = state.tagList.filter((t) => t.id === id)[0];
       state.currentTag = tag;
+    },
+    //编辑标签页更新标签名   vuex规定只能传两个参数  payload就是object
+    updateTag(state, payload: { id: string; name: string }) {
+      // const id = object.id;
+      // const name = object.name;
+      // 析构语法
+      const { id, name } = payload;
+      const idList = state.tagList.map((item) => item.id);
+      //如果此标签id存在
+      if (idList.indexOf(id) >= 0) {
+        const names = state.tagList.map((item) => item.name);
+        //如果修改的名字已存在
+        if (names.indexOf(name) >= 0) {
+          window.alert("标签名重复");
+        } else {
+          const tag = state.tagList.filter((item) => item.id === id)[0];
+          tag.name = name;
+          store.commit("saveTags");
+        }
+      }
+    },
+    removeTag(state, id: string) {
+      let index = -1;
+      for (let i = 0; i < state.tagList.length; i++) {
+        if (state.tagList[i].id === id) {
+          index = i;
+          break;
+        }
+      }
+      if (index >= 0) {
+        state.tagList.splice(index, 1);
+        store.commit("saveTags");
+        //不能用this了  用this也拿不到back方法 直接引入可以
+        router.back();
+      } else {
+        window.alert("删除失败");
+      }
     },
 
     //获取本地的记录
