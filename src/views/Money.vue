@@ -24,15 +24,14 @@ import { Component } from "vue-property-decorator";
 
 @Component({
   components: { Layout, FormItem, NumberPad, Tags, Types },
-  computed: {
-    recordList() {
-      return this.$store.state.recordList;
-    },
-  },
 })
 export default class Money extends Vue {
   //初始化record   record用来收集标签值、备注值、类型值、计算值
   record: RecordItem = { tags: [], notes: "", type: "-", amount: 0 };
+
+  get recordList() {
+    return this.$store.state.recordList;
+  }
 
   created() {
     //初始化获取数据

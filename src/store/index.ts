@@ -5,14 +5,27 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+//不能有return返回值 在这里声明了currentTag类型
+type RootState = {
+  recordList: RecordItem[];
+  tagList: Tag[];
+  currentTag?: Tag;
+};
+
 const store = new Vuex.Store({
   //data
   state: {
-    recordList: [] as RecordItem[],
-    tagList: [] as Tag[],
-  },
+    recordList: [],
+    tagList: [],
+    currentTag: undefined, //currentTag除了可以是undefined还可以是Tag
+  } as RootState,
   //methods
   mutations: {
+    setCurrentTag(state, id: string) {
+      const tag = state.tagList.filter((t) => t.id === id)[0];
+      state.currentTag = tag;
+    },
+
     //获取本地的记录
     fetchRecords(state) {
       state.recordList = JSON.parse(
@@ -39,23 +52,21 @@ const store = new Vuex.Store({
     },
     //获取标签
     fetchTags(state) {
-      return (state.tagList = JSON.parse(
+      state.tagList = JSON.parse(
         window.localStorage.getItem("tagList") || "[]"
-      ));
+      );
     },
     //创建标签
     createTag(state, name: string) {
       const names = state.tagList.map((item) => item.name);
       if (names.indexOf(name) >= 0) {
         window.alert("标签名重复");
-        return "duplicated";
       }
       //不重复就创建id
       const id = createId().toString();
       state.tagList.push({ id, name: name });
       store.commit("saveTags");
       window.alert("添加成功");
-      return "success";
     },
     //保存标签
     saveTags(state) {

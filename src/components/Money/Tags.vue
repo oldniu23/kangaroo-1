@@ -22,15 +22,13 @@ import Vue from "vue";
 import { mixins } from "vue-class-component";
 import { Component } from "vue-property-decorator";
 
-@Component({
-  computed: {
-    tagList() {
-      return this.$store.state.tagList;
-    },
-  },
-})
+@Component
 export default class Tags extends mixins(TagHelper) {
   selectedTags: string[] = []; //存放被选中的标签
+
+  get tagList() {
+    return this.$store.state.tagList;
+  }
 
   created() {
     this.$store.commit("fetchTags");
