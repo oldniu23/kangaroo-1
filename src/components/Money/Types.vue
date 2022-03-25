@@ -2,31 +2,47 @@
   <div>
     <ul class="types">
       <!-- 给v-bind:class一个对象,以动态地切换class。v-bind:class指令可以与普通的class特性共存 -->
-      <li :class="type === '-' && 'selected'" @click="selectType('-')">支出</li>
-      <li :class="type === '+' && 'selected'" @click="selectType('+')">收入</li>
+      <!-- es6的语法  如果key里有变量 用[ ]包裹起来 -->
+      <!-- 表驱动编程  如果selected后为true就selected出现 -->
+      <li
+        :class="{
+          [classPrefix + '-item']: classPrefix,
+          selected: value === '-',
+        }"
+        @click="selectType('-')"
+      >
+        支出
+      </li>
+      <li
+        :class="{
+          [classPrefix + '-item']: classPrefix,
+          selected: value === '+',
+        }"
+        @click="selectType('+')"
+      >
+        收入
+      </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { Component, Watch } from "vue-property-decorator";
+import { Component, Prop } from "vue-property-decorator";
 
 @Component
 export default class Types extends Vue {
-  //初始type值为支出 通过点击切换type值
-  type = "-";
+  //!意思是绝对不会是undefined  ?是可能会是undefined
+  @Prop(String) readonly value!: string;
+  @Prop(String) classPrefix?: string;
+
   selectType(type: string) {
     if (type !== "+" && type !== "-") {
       throw new Error("未知类型");
     }
-    this.type = type;
+    this.$emit("update:value", type);
   }
   //监控type的值 变化了就触发下列事件 此事件会触发money组件中的事件
-  @Watch("type")
-  onValueChanged(value: string) {
-    this.$emit("update:value", value);
-  }
 }
 </script>
 

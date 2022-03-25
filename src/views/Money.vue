@@ -1,7 +1,7 @@
 <template>
   <Layout class-prefix="layout">
     <NumberPad @update:value="onUpdateAmount" @submit="saveRecord" />
-    <Types @update:value="onUpdateType" />
+    <Types :value.sync="record.type" />
     <div class="notes">
       <FormItem
         file-name="备注"
@@ -42,10 +42,7 @@ export default class Money extends Vue {
     //把备注值给record的notes
     this.record.notes = value;
   }
-  onUpdateType(value: string) {
-    //把支出收入类型给record的type
-    this.record.type = value;
-  }
+
   onUpdateAmount(value: string) {
     //解析数字板的output  赋给record的amount
     this.record.amount = parseFloat(value);

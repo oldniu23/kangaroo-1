@@ -1,0 +1,251 @@
+[33mcommit 1a815d36adf59261602f899338b634bb44e5431b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: oldniu <1241677287@qq.com>
+Date:   Fri Mar 25 17:00:28 2022 +0800
+
+    这是过渡版本 存个档以防万一
+
+[33mcommit 44b5b16e389b8dfd5f57d55132761cc9aecbaa80[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 24 16:32:11 2022 +0800
+
+    成功使用Vuex
+
+[33mcommit c786ac0aae2e87d0090711bb66cd7603e1eb8b80[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 24 16:27:44 2022 +0800
+
+    修复了编辑页刷新就404的bug
+
+[33mcommit 386df67bcd121058bce769271f95a4ec12a7bdd0[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 24 15:44:19 2022 +0800
+
+    所有computed改成get函数
+
+[33mcommit 5112b686de6fb3de8895e30181a1610f2f0f75b8[m
+Author: oldniu <1241677287@qq.com>
+Date:   Wed Mar 23 20:14:47 2022 +0800
+
+    使用vuex(labels.vue用了 其他的还没完善好) 抽离了创建标签功能到mixin
+
+[33mcommit 0aab0b02186d7daf15b9fabae09e7fe0ec0e87bf[m
+Author: oldniu <1241677287@qq.com>
+Date:   Mon Mar 21 16:31:30 2022 +0800
+
+    模块化store 删除models
+
+[33mcommit d8635dafbcabad720319acfcd446af18473a96cc[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sun Mar 20 20:05:01 2022 +0800
+
+    将所有数据操作封装到store
+
+[33mcommit a8dde3eacc1683ce39831c0a979bcf69ed01f942[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sun Mar 20 19:22:44 2022 +0800
+
+    封装record的操作
+
+[33mcommit 55b341ae056008be7f4f80143ab48cbf03bda874[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sun Mar 20 17:35:30 2022 +0800
+
+    封装tagList的增删改查
+
+[33mcommit 12fc99df37943c205f5501799eb3ead2eb3bbd2d[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sun Mar 20 16:24:31 2022 +0800
+
+    使用全局tagList
+
+[33mcommit 9ddf66a1533363202d074137b08abef443908f57[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sat Mar 19 21:13:25 2022 +0800
+
+    将create封装到 recordListModel
+
+[33mcommit 52f31613513af86de72d203599d998e94714992e[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sat Mar 19 21:04:43 2022 +0800
+
+    重新封装recordListModel
+
+[33mcommit 52b0c999b3e321f6c3a5d3f1f8720ad7b05f66b0[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sat Mar 19 20:32:06 2022 +0800
+
+    解决id生成问题
+
+[33mcommit 213b875c98bcff033164d91805ff0586dc9f4a1b[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sat Mar 19 17:25:17 2022 +0800
+
+    可以编辑和删除标签
+
+[33mcommit 7252a014cb3169ad79ccbabbb83344c0c9310a66[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sat Mar 19 16:26:47 2022 +0800
+
+    展示tag的name
+
+[33mcommit 058ea2ca6f6f0050090ec5f4c9a545a0a4cb008f[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sat Mar 19 16:02:42 2022 +0800
+
+    完成编辑页css 提取了备注组件和按钮组件成两个通用组件
+
+[33mcommit f20132192fbf9e4a7cabdea816ab41bb9cd0b089[m
+Author: oldniu <1241677287@qq.com>
+Date:   Fri Mar 18 17:17:26 2022 +0800
+
+    改造notes 使其成为通用组件
+
+[33mcommit 61ea22f7a78f894a75a3dd72f3c2c7b4c6f5d2cb[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 17 22:19:04 2022 +0800
+
+    点击标签可跳转至编辑页
+
+[33mcommit e1b2f897fcad38cf9d68ea00b0345ff41c2ea3de[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 17 22:08:15 2022 +0800
+
+    新增EditLabel组件
+
+[33mcommit 2c1f67bed9674880e0b683802eeb07f4be7c6e4e[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 17 21:37:07 2022 +0800
+
+    将tag的string改为id和name
+
+[33mcommit 32aa1a292f72907eb1ad02fea8e9652f2b690f2e[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 17 17:13:52 2022 +0800
+
+    labels页面创建标签
+
+[33mcommit a8fcaa4db3627e4d4d15739b757e18725fada0cd[m
+Author: oldniu <1241677287@qq.com>
+Date:   Wed Mar 16 16:55:35 2022 +0800
+
+     创建记录的时间 createdAt
+
+[33mcommit d5b1defe4541f8248be5858771aa5a8db3bfaade[m
+Author: oldniu <1241677287@qq.com>
+Date:   Wed Mar 16 15:58:52 2022 +0800
+
+    复制record到list(深拷贝)
+
+[33mcommit 169b6a7fee0bd98d72bc02b443397a9e4946194d[m
+Author: oldniu <1241677287@qq.com>
+Date:   Wed Mar 16 10:25:27 2022 +0800
+
+    收集四个组件的数据到record
+
+[33mcommit 2f77cc33b81ddc0b52a99d47fdaefe0e7be9da59[m
+Author: oldniu <1241677287@qq.com>
+Date:   Tue Mar 15 16:18:18 2022 +0800
+
+    取消或选中标签tags
+
+[33mcommit 9ff77a5d695c2d218ee8757499e4e25cee925225[m
+Author: oldniu <1241677287@qq.com>
+Date:   Tue Mar 15 10:52:23 2022 +0800
+
+    使用v-model代替:value和@input 绑定
+
+[33mcommit 330ab67d9c978ef86afed5b2c314b4adf6be41ff[m
+Author: oldniu <1241677287@qq.com>
+Date:   Tue Mar 15 10:42:39 2022 +0800
+
+    完成notes组件
+
+[33mcommit 1d97834eafecd82a671ecb47cd7e49ca5f0000f3[m
+Author: oldniu <1241677287@qq.com>
+Date:   Mon Mar 14 22:23:37 2022 +0800
+
+    数字板块的只剩下ok没解决 输入 输出 清空 删除 都已完成
+
+[33mcommit 6c78c9ae748374016bf4e6fe2e0b226578b72da0[m
+Author: oldniu <1241677287@qq.com>
+Date:   Mon Mar 14 18:39:35 2022 +0800
+
+    完成types组件的切换功能
+
+[33mcommit 0f196f7b7531baa23d1d8793d687367241ee9aa3[m
+Author: oldniu <1241677287@qq.com>
+Date:   Mon Mar 14 16:02:41 2022 +0800
+
+    js实现types的切换功能
+
+[33mcommit f8774330a19c648a21b3ad3ac413775ed414c64c[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sun Mar 13 21:42:06 2022 +0800
+
+    money页面模块化 分成四个组件
+
+[33mcommit 2b165110479c62758a3ceab93ca79aec72629f5a[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sun Mar 13 19:48:49 2022 +0800
+
+    html和css做好了
+
+[33mcommit 4ecd2a03312e146c4e7164b3489ed26c86cc0b50[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sun Mar 13 00:19:36 2022 +0800
+
+    money组件的标签 备注 类型的css 还差计数板的css
+
+[33mcommit acb776bd1683839faad09b02befd16eed9192fbe[m
+Author: oldniu <1241677287@qq.com>
+Date:   Sat Mar 12 17:27:15 2022 +0800
+
+    添加全局样式和全局变量
+
+[33mcommit 43472b5c5435d8bbfc1968b434604fc888fc1492[m
+Author: oldniu <1241677287@qq.com>
+Date:   Fri Mar 11 23:35:21 2022 +0800
+
+    Icon的样式和激活路由
+
+[33mcommit 08a1914c3180e5eb6972c1b50e424153749765a0[m
+Author: oldniu <1241677287@qq.com>
+Date:   Fri Mar 11 22:04:46 2022 +0800
+
+    创建<Icon />组件
+
+[33mcommit 7bd8d53a900aff7e5e717dd12efe2785d2408b43[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 10 23:11:14 2022 +0800
+
+    创建Layout组件和slot插槽
+
+[33mcommit 4ca8390beab7f9f4cb6bd3e4f869eb6d71bbd4bc[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 10 22:26:03 2022 +0800
+
+    重复的css代码进行三个页面导航布局
+
+[33mcommit f54586493ba9e7becc3673ab973eb54655c819d5[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 10 20:50:52 2022 +0800
+
+    添加404NotFound页面
+
+[33mcommit f2921f87e08cb46b87b3de453e9cbe9108d5eeff[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 10 18:26:34 2022 +0800
+
+    将Nav组件做成全局组件
+
+[33mcommit df55e8f98a4bbc77766871b37d32e38afe7e50f5[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 10 16:16:24 2022 +0800
+
+    创建三个页面
+
+[33mcommit ae2716c2fe1431f161da358f1dbe494a7b267baa[m
+Author: oldniu <1241677287@qq.com>
+Date:   Thu Mar 10 11:49:40 2022 +0800
+
+    init
