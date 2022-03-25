@@ -18,13 +18,12 @@
 <script lang="ts">
 import Layout from "@/components/Layout.vue";
 import Vue from "vue";
-import Types from "@/components/Money/Types.vue";
 import { Component } from "vue-property-decorator";
 import Tabs from "@/components/Tabs.vue";
 import intervalList from "@/constants/intervalList";
 import recordTypeList from "@/constants/recordTypeList";
 
-@Component({ components: { Layout, Tabs, Types } })
+@Component({ components: { Layout, Tabs } })
 export default class Statistics extends Vue {
   //两个切换栏的初始值
   type = "-";
