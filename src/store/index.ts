@@ -6,12 +6,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-//不能有return返回值 在这里声明了currentTag类型
-type RootState = {
-  recordList: RecordItem[];
-  tagList: Tag[];
-  currentTag?: Tag;
-};
+//Vuex不能有return返回值
 
 const store = new Vuex.Store({
   //data
@@ -73,8 +68,8 @@ const store = new Vuex.Store({
     createRecord(state, record) {
       //先克隆一遍再创建记录
       const record2: RecordItem = clone(record);
-      //添加当前日期
-      record2.createdAt = new Date();
+      //添加当前日期  转成字符串再添加
+      record2.createdAt = new Date().toISOString();
       //如果recordList存在 就把record2(这是克隆后的值)push进recordList
       state.recordList.push(record2);
       //创建记录后保存记录

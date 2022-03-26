@@ -28,8 +28,8 @@ const recordStore = {
   createRecord(record: RecordItem) {
     //先克隆一遍再创建记录
     const record2: RecordItem = clone(record);
-    //添加当前日期
-    record2.createdAt = new Date();
+    //  转变成ISO字符串(日期转字符串稍微有点特殊) 并添加当前日期
+    record2.createdAt = new Date().toISOString();
     //如果recordList存在 就把record2(这是克隆后的值)push进recordList
     this.recordList && this.recordList.push(record2);
     //创建记录后保存记录

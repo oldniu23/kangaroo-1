@@ -1,9 +1,10 @@
+//此文件用来存放全局类型
 type RecordItem = {
   tags: string[];
   notes: string;
   type: string;
   amount: number; //数据类型
-  createdAt?: Date; //类
+  createdAt?: string; //类
 };
 
 type Tag = {
@@ -18,6 +19,13 @@ type TagListModel = {
   save: () => void;
   update: (id: string, name: string) => "success" | "not found" | "duplicated";
   remove: (id: string) => boolean;
+};
+
+// 在这里声明了currentTag类型
+type RootState = {
+  recordList: RecordItem[];
+  tagList: Tag[];
+  currentTag?: Tag;
 };
 
 interface Window {}
