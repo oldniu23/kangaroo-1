@@ -1,6 +1,6 @@
 //此文件用来存放全局类型
 type RecordItem = {
-  tags: string[];
+  tags: Tag[];
   notes: string;
   type: string;
   amount: number; //数据类型
