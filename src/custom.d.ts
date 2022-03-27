@@ -24,6 +24,7 @@ type TagListModel = {
 // 在这里声明了currentTag类型
 type RootState = {
   recordList: RecordItem[];
+  createRecordError: Error | null;
   tagList: Tag[];
   currentTag?: Tag;
 };

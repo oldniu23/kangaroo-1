@@ -14,3 +14,10 @@ new Vue({
   store,
   render: (h) => h(App),
 }).$mount("#app");
+
+// 此代码可能会在应用刚打开时帮助浏览器自动往下滑到底部
+window.onload = function () {
+  setTimeout(function () {
+    window.scrollTo(0, 300);
+  }, 0);
+};

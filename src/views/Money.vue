@@ -6,10 +6,11 @@
       <FormItem
         file-name="备注"
         placeholder="请在这里输入备注"
+        :value="record.notes"
         @update:value="onUpdateNotes"
       />
     </div>
-    <Tags />
+    <Tags @update:value="record.tags = $event" />
   </Layout>
 </template>
 
@@ -53,7 +54,16 @@ export default class Money extends Vue {
   saveRecord() {
     //点ok触发此事件
     //把上边的record收集的值传给store.createRecord 创建一条记录
+    if (!this.record.tags || this.record.tags.length === 0) {
+      return window.alert("请选择至少一个标签");
+    }
     this.$store.commit("createRecord", this.record);
+    //如果没错误就提示已保存
+    if (this.$store.state.createRecordError === null) {
+      window.alert("已保存");
+      //保存后备注置空
+      this.record.notes = "";
+    }
   }
 }
 </script>

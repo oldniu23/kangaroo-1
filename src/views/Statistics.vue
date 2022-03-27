@@ -2,7 +2,8 @@
   <Layout>
     <!-- type 是收入支出  interval是间隔时间 -->
     <Tabs classPrefix="type" :dataSource="recordTypeList" :value.sync="type" />
-    <ol>
+    <!-- 如果列表有东西才展示ol -->
+    <ol v-if="groupList.length > 0">
       <!-- result是个hashTable(对象) -->
       <li v-for="(group, index) in groupList" :key="index">
         <h3 class="title">
@@ -17,6 +18,8 @@
         </ol>
       </li>
     </ol>
+    <!-- 接上边ol 如果列表没东西就展示这个div  -->
+    <div v-else class="noResult">记一笔吧！</div>
   </Layout>
 </template>
 
@@ -31,8 +34,9 @@ import clone from "@/lib/clone";
 
 @Component({ components: { Layout, Tabs } })
 export default class Statistics extends Vue {
+  //展示选择的标签
   tagString(tags: Tag[]) {
-    return tags.length === 0 ? "无" : tags.join(",");
+    return tags.length === 0 ? "无" : tags.map((t) => t.name).join("&");
   }
   //显示今天昨天前天  以及如果是今年就不显示年份
   beautify(string: string) {
@@ -61,15 +65,16 @@ export default class Statistics extends Vue {
   get groupList() {
     //我们需要把result弄成 [{title,items},{title,items},...]
     const { recordList } = this;
-    if (recordList.length === 0) {
-      return [];
-    }
+
     //排序 日期近的排前边 filter用来筛选类型(+、-)匹配的 sort会改变原来的数组 所以克隆一遍再用
     const newList = clone(recordList)
       .filter((r) => r.type === this.type)
       .sort(
         (a, b) => dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf()
       );
+    if (newList.length === 0) {
+      return [];
+    }
     // console.log(newList);
     type Result = { title: string; total?: number; items: RecordItem[] }[];
     const result: Result = [
@@ -109,6 +114,10 @@ export default class Statistics extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.noResult {
+  padding: 16px;
+  text-align: center;
+}
 ::v-deep {
   .type-tabs-item {
     background: #c4c4c4;

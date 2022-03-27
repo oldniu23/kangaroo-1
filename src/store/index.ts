@@ -12,6 +12,7 @@ const store = new Vuex.Store({
   //data
   state: {
     recordList: [],
+    createRecordError: null,
     tagList: [],
     currentTag: undefined, //currentTag除了可以是undefined还可以是Tag
   } as RootState,
@@ -65,16 +66,15 @@ const store = new Vuex.Store({
         window.localStorage.getItem("recordList") || "[]"
       ) as RecordItem[];
     },
-    createRecord(state, record) {
+    createRecord(state, record: RecordItem) {
       //先克隆一遍再创建记录
-      const record2: RecordItem = clone(record);
+      const record2 = clone(record);
       //添加当前日期  转成字符串再添加
       record2.createdAt = new Date().toISOString();
       //如果recordList存在 就把record2(这是克隆后的值)push进recordList
       state.recordList.push(record2);
       //创建记录后保存记录
       store.commit("saveRecords");
-      // recordStore.saveRecords();
     },
     saveRecords(state) {
       //把收集过record的recordList 字符串序列化并放到本地存储
@@ -88,6 +88,13 @@ const store = new Vuex.Store({
       state.tagList = JSON.parse(
         window.localStorage.getItem("tagList") || "[]"
       );
+      //刚开始如果没标签就默认创建四个
+      if (!state.tagList || state.tagList.length === 0) {
+        store.commit("createTag", "衣");
+        store.commit("createTag", "食");
+        store.commit("createTag", "住");
+        store.commit("createTag", "行");
+      }
     },
     //创建标签
     createTag(state, name: string) {
