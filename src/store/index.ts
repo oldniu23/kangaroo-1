@@ -13,6 +13,7 @@ const store = new Vuex.Store({
   state: {
     recordList: [],
     createRecordError: null,
+    createTagError: null,
     tagList: [],
     currentTag: undefined, //currentTag除了可以是undefined还可以是Tag
   } as RootState,
@@ -98,15 +99,18 @@ const store = new Vuex.Store({
     },
     //创建标签
     createTag(state, name: string) {
+      //一开始先把错误置空
+      state.createTagError = null;
       const names = state.tagList.map((item) => item.name);
       if (names.indexOf(name) >= 0) {
-        window.alert("标签名重复");
+        //有错就置为非空
+        state.createTagError = new Error("tag name duplicated");
+        return;
       }
       //不重复就创建id
       const id = createId().toString();
       state.tagList.push({ id, name: name });
       store.commit("saveTags");
-      window.alert("添加成功");
     },
     //保存标签
     saveTags(state) {
