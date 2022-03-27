@@ -1,6 +1,8 @@
 const path = require("path");
 
 module.exports = {
+  publicPath:
+    process.env.NODE_ENV === "production" ? "/kangaroo-1-website/" : "/",
   lintOnSave: false,
   chainWebpack: (config) => {
     //确定icon所在的目录   __dirname是当前目录的意思
